@@ -6,8 +6,8 @@ export default function Home() {
             <h1>Home</h1>
 
             <Link
-                href="/en/locations/berkeley"
-            >Berkeley ->
+                href="/en/locations"
+            >Locations ->
             </Link></>
     )
 }

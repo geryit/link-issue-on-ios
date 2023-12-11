@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default async function Slug({params: {lang, slug}}) {
+export default async function Location({params: {slug}}) {
     const locations = await fetch(`https://cloudflare.carbonhealth.com/webdata`, {
         next: {
             revalidate: 60 * 60,
@@ -13,22 +13,10 @@ export default async function Slug({params: {lang, slug}}) {
         <>
             <h1>{location.name}</h1>
             <Link
-                href="/en/"
-            >Home ->
+                href="/en/locations"
+            > Locations ->
             </Link>
 
-            <div>
-                {
-                    locations.map(location => (
-                        <div key={location.id}
-                        ><Link
-                            href={`/en/locations/${location.slug}`}
-                        >{location.name}
-                        </Link>
-                        </div>
-                    ))
-                }
-            </div>
         </>
     )
 }
